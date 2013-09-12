@@ -8,19 +8,6 @@
 		        http://www.springframework.org/schema/context 
 		        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<!-- Beans Declaration -->
-	<bean id="User" class="pl.radek.model.User" />
-
-	<!-- User Service Declaration -->
-	<bean id="UserService" class="pl.radek.service.UserService">
-		<property name="userDAO" ref="UserDAO" />
-	</bean>
-
-	<!-- User DAO Declaration -->
-	<bean id="UserDAO" class="pl.radek.dao.UserDAO">
-		<property name="sessionFactory" ref="SessionFactory" />
-	</bean>
-
 	<!-- Data Source Declaration -->
 	<bean id="DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
@@ -39,7 +26,15 @@
 		<property name="dataSource" ref="DataSource" />
 		<property name="annotatedClasses">
 			<list>
-				<value>pl.radek.model.User</value>
+				<value>pl.radek.model.UserEntity</value>
+				<value>pl.radek.model.SecurityRoleEntity</value>
+				
+				<!-- <value>pl.radek.dao.impl.UserEntityDAOImpl</value>
+				<value>pl.radek.dao.impl.SecurityRoleEntityDAOImpl</value> -->
+				
+				<value>pl.radek.service.impl.UserDetailsServiceImpl</value>
+				<value>pl.radek.service.impl.SecurityRoleEntityServiceImpl</value>
+				<value>pl.radek.service.impl.AssemblerImpl</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

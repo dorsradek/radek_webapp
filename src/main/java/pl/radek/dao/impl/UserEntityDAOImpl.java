@@ -1,4 +1,4 @@
-package pl.radek.dao;
+package pl.radek.dao.impl;
 
 import java.util.List;
 import java.util.Set;
@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import pl.radek.dao.UserEntityDAO;
 import pl.radek.model.SecurityRoleEntity;
 import pl.radek.model.UserEntity;
 

@@ -2,6 +2,8 @@ package pl.radek.managed.bean;
 
 import java.io.IOException;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.RequestDispatcher;
@@ -14,6 +16,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope("request")
+@ManagedBean
+@RequestScoped
 public class LoginBean {
 
 	public String doLogin() throws IOException, ServletException {

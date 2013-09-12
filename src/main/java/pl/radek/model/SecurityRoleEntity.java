@@ -15,14 +15,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "security_role", catalog = "mydb", schema = "")
-@NamedQueries({
-
-@NamedQuery(name = "SecurityRoleEntity.findAll", query = "SELECT s FROM SecurityRoleEntity s"),
-
-@NamedQuery(name = "SecurityRoleEntity.findById", query = "SELECT s FROM SecurityRoleEntity s WHERE s.id = :id"),
-
-@NamedQuery(name = "SecurityRoleEntity.findByName", query = "SELECT s FROM SecurityRoleEntity s WHERE s.name = :name") })
+@Table(name = "security_role")
+@NamedQueries({ @NamedQuery(name = "SecurityRoleEntity.findAll", query = "SELECT s FROM SecurityRoleEntity s"),
+		@NamedQuery(name = "SecurityRoleEntity.findById", query = "SELECT s FROM SecurityRoleEntity s WHERE s.id = :id"),
+		@NamedQuery(name = "SecurityRoleEntity.findByName", query = "SELECT s FROM SecurityRoleEntity s WHERE s.name = :name") })
 public class SecurityRoleEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;

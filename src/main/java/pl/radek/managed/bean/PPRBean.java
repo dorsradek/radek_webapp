@@ -9,7 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
-@ManagedBean(name="pprBean")
+@ManagedBean
 @RequestScoped
 @SuppressWarnings("serial")
 public class PPRBean implements Serializable {
