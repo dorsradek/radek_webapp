@@ -6,3 +6,4 @@
 *.ear
 
 target/*
+target/m2e-wtp/web-resources/META-INF/maven/pl.radek/radek_webapp/pom.properties
