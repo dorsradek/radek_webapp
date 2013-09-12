@@ -77,25 +77,14 @@
 		</p:panel>
 
 	</h:panelGrid>
-
-	<h:form id="loginForm" prependId="false">
-		<p:panelGrid columns="2">
-			<h:outputLabel for="j_username" value="Username:" />
-			<p:inputText id="j_username" required="true">
-			</p:inputText>
-
-			<h:outputLabel for="j_password" value="Password:" />
-			<p:password id="j_password" required="true">
-			</p:password>
-
-			<h:outputText for="_spring_security_remember_me" value="Remember me" />
-			<p:selectBooleanCheckbox id="_spring_security_remember_me" />
-
-			<f:facet name="footer">
-				<p:commandButton type="submit" id="login" ajax="false"
-					actionListener="#{loginBean.doLogin}" value="Login" />
-			</f:facet>
-		</p:panelGrid>
+	<h:form>
+		<p:commandButton action="/pages/admin/asd.jsf?faces-redirect=true" value="Go Home"
+			rendered="#{request.isUserInRole('ROLE_ADMIN')}" />
+	</h:form>
+	<h:form id="logoutForm" prependId="false"
+		rendered="#{not empty request.remoteUser}">
+		<p:commandButton type="submit" id="logout" ajax="false"
+			actionListener="#{loginBean.doLogout}" value="Logout" />
 	</h:form>
 </h:body>
 </html>

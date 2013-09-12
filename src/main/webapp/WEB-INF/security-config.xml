@@ -11,12 +11,14 @@
 		class="pl.radek.service.impl.UserDetailsServiceImpl"></beans:bean>
 	<context:component-scan base-package="pl.radek" />
 
-	<http auto-config='true'>
-		<intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
-		<intercept-url pattern="/user/**" access="ROLE_REGISTERED_USER" />
-		<intercept-url pattern="/kennel/**" access="ROLE_KENNEL_OWNER" />
-		<!-- <security:intercept-url pattern="/login.jsp" access="IS_AUTHENTICATED_ANONYMOUSLY" 
-			/> -->
+	<http auto-config="true">
+		<form-login login-page="/" default-target-url="/home"
+			authentication-failure-url="/" always-use-default-target="true" />
+		<logout invalidate-session="true" logout-success-url="/"
+			logout-url="/j_spring_security_logout" />
+		<intercept-url pattern="/home/**" access="ROLE_USER" />
+		<intercept-url pattern="/pages/admin/**" access="ROLE_ADMIN" />
+		<intercept-url pattern="/pages/user/**" access="ROLE_USER,ROLE_ADMIN" />
 	</http>
 
 	<beans:bean id="daoAuthenticationProvider"

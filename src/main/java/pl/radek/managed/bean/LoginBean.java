@@ -27,4 +27,12 @@ public class LoginBean {
 		FacesContext.getCurrentInstance().responseComplete();
 		return null;
 	}
+
+	public String doLogout() throws IOException, ServletException {
+        ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+        RequestDispatcher dispatcher = ((ServletRequest) context.getRequest()).getRequestDispatcher("/j_spring_security_logout");
+        dispatcher.forward((ServletRequest) context.getRequest(), (ServletResponse) context.getResponse());
+        FacesContext.getCurrentInstance().responseComplete();
+        return "logout";
+    }
 }

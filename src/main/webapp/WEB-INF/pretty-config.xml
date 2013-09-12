@@ -13,7 +13,11 @@
 		<view-id value="/pages/error.jsf" />
 	</url-mapping>
 	<url-mapping id="index">
+		<pattern value="/home" />
+		<view-id value="/pages/user/index.jsf" />
+	</url-mapping>
+	<url-mapping id="login">
 		<pattern value="/" />
-		<view-id value="/pages/index.jsf" />
+		<view-id value="/pages/login.jsf" />
 	</url-mapping>
 </pretty-config>
