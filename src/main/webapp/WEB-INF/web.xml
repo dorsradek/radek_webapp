@@ -5,6 +5,24 @@
 
 	<display-name>Archetype Created Web Application</display-name>
 
+	<context-param>
+		<param-name>com.sun.faces.enableMissingResourceLibraryDetection</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>home</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.CONFIG_FILES</param-name>
+		<param-value>/WEB-INF/faces-config.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+		<param-value>.xhtml</param-value>
+	</context-param>
+
+
 	<!-- Spring Context Configuration' s Path definition -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>

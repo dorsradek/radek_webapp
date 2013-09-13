@@ -145,6 +145,18 @@
 			<version>${primefaces.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>blitzer</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>home</artifactId>
+			<version>1.0.4</version>
+		</dependency>
+
 		<!-- Prettyfaces library -->
 		<dependency>
 			<groupId>com.ocpsoft</groupId>
