@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="#{languageBean.localeCode}"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<body>
+	<h:form id="loginForm" prependId="false"
+		rendered="#{empty request.remoteUser}">
+		<p:panelGrid>
+			<p:row>
+				<p:column>
+					<h:outputLabel for="j_username" value="Username:" />
+				</p:column>
+				<p:column>
+					<h:outputLabel for="j_password" value="Password:" />
+				</p:column>
+				<p:column></p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<p:inputText id="j_username" required="true"
+						value="#{loginBean.username}" />
+				</p:column>
+				<p:column>
+					<p:password id="j_password" required="true"
+						value="#{loginBean.password}" />
+				</p:column>
+				<p:column>
+					<p:commandButton type="submit" id="login" ajax="false"
+						action="#{loginBean.doLogin}" value="Login" />
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<p:selectBooleanCheckbox id="_spring_security_remember_me"
+						value="#{loginBean.rememberMe}" />
+					<h:outputText for="_spring_security_remember_me"
+						value="Remember me" />
+				</p:column>
+				<p:column>Nie pamiętasz hasła?</p:column>
+				<p:column></p:column>
+			</p:row>
+		</p:panelGrid>
+	</h:form>
+	<h:form id="logoutForm" prependId="false"
+		rendered="#{not empty request.remoteUser}">
+		<p:commandButton type="submit" id="logout" ajax="false"
+			actionListener="#{loginBean.doLogout}" value="Logout" />
+	</h:form>
+
+	<h:form id="registerForm" prependId="false"
+		rendered="#{empty request.remoteUser}">
+		<p:commandButton type="submit" id="register" ajax="false"
+			actionListener="#{loginBean.doRegister}" value="Register" />
+	</h:form>
+</body>
+</html>

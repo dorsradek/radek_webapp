@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+.ui-widget,.ui-widget .ui-widget {
+	font-size: 85% !important;
+}
+
+#home {
+	background-color: #FFFFFF;
+}
+
+#west {
+	height: 580px;
+	overflow: hidden
+}
+
+.languageHeaderGrid tr,.languageHeaderGrid td {
+	border: none;
+}

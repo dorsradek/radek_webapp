@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="#{languageBean.localeCode}"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<body>
+	<h:form prependId="false">
+		<p:panelGrid>
+			<p:row>
+				<p:column>
+					<p:selectOneMenu id="selectState"
+						value="#{languageBean.localeCode}">
+						<f:selectItems value="#{languageBean.countriesInMap}" />
+					</p:selectOneMenu>
+				</p:column>
+				<p:column>
+					<p:commandButton type="submit" id="changeLang" ajax="false"
+						actionListener="#{languageBean.changeLanguage}" value="Change" />
+				</p:column>
+			</p:row>
+		</p:panelGrid>
+	</h:form>
+</body>
+</html>

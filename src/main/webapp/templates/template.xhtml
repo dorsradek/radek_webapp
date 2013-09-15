@@ -1,12 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html lang="#{languageBean.localeCode}"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<f:view contentType="text/html" id="fview" locale="#{LanguageBean.locale}">
+<f:view contentType="text/html" id="fview"
+	locale="#{languageBean.locale}">
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Page template with PrimeFaces</title>
@@ -16,47 +18,31 @@
 	</f:metadata>
 
 	<h:head>
-		<p:ajaxStatus onstart="statusDialog.show();"
-			onsuccess="statusDialog.hide();" />
+		<h:outputStylesheet name="css/style.css" />
+	</h:head>
+	<h:body>
+		<p:messages id="messages" showDetail="false" autoUpdate="true"
+			closable="false" />
+		<p:layout fullPage="true" resizeTitle="resize" id="main">
 
-		<p:layout fullPage="true" resizeTitle="resize"
-			style="background-color:#FFFFFF;" id="main">
-
-			<p:layoutUnit position="north" size="68" id="north">
+			<p:layoutUnit id="north" position="north" size="150"
+				resizable="false">
 				<ui:include src="header.xhtml" />
 			</p:layoutUnit>
 
-			<p:layoutUnit position="west" id="west" resizable="false"
-				header="#{msg['menu.title']}" style="height:580px;overflow:hidden;"
-				size="225">
+			<p:layoutUnit id="west" position="west" resizable="false"
+				header="#{msg['menu.title']}" size="225">
 				<ui:include src="menu.xhtml" />
 			</p:layoutUnit>
 
-			<p:layoutUnit styleClass="layoutUnitCenter" position="center">
-				<h:form id="mainForm"  prependId="false">
-					<p:messages autoUpdate="true" id="msgs" showDetail="true"
-						showSummary="true" />
-					<ui:insert name="content" />
-				</h:form>
-			</p:layoutUnit>
-
-			<p:layoutUnit position="east" size="0"
-				style="width:0px; display:none;" id="east">
+			<p:layoutUnit id="content" position="center">
+				<ui:insert name="content" />
 			</p:layoutUnit>
 
 			<p:layoutUnit position="south" resizable="true" id="south">
 				<ui:include src="footer.xhtml" />
 			</p:layoutUnit>
-
 		</p:layout>
-
-		<p:dialog modal="true" widgetVar="statusDialog" showHeader="false"
-			draggable="false" closable="false" resizable="false" visible="false"
-			position="center" maximizable="false" minimizable="false">
-			<p:graphicImage value="#{resource['images/ajax-loader.gif']}" />
-		</p:dialog>
-	</h:head>
-	<h:body onload="statusDialog.hide();">
 	</h:body>
 </f:view>
 </html>

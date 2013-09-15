@@ -1,5 +1,6 @@
 package pl.radek.managed.bean;
 
+import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -8,9 +9,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-@ManagedBean
+@ManagedBean(name = "languageBean", eager = true)
 @SessionScoped
-public class LanguageBean {
+public class LanguageBean implements Serializable {
+
+	private static final long serialVersionUID = -816338188282732955L;
 
 	private Locale locale = FacesContext.getCurrentInstance().getViewRoot().getLocale();
 
@@ -47,31 +50,6 @@ public class LanguageBean {
 			}
 		}
 		System.out.println(FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage());
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((localeCode == null) ? 0 : localeCode.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		LanguageBean other = (LanguageBean) obj;
-		if (localeCode == null) {
-			if (other.localeCode != null)
-				return false;
-		} else if (!localeCode.equals(other.localeCode))
-			return false;
-		return true;
 	}
 
 	public Locale getLocale() {

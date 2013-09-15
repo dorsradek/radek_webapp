@@ -11,12 +11,20 @@
 		class="pl.radek.service.impl.UserDetailsServiceImpl"></beans:bean>
 	<context:component-scan base-package="pl.radek" />
 
+	<global-method-security secured-annotations="enabled">
+	</global-method-security>
+
+	<beans:bean id="rememberMePostProcessor" class="pl.radek.utils.RememberMePostProcessor">
+	</beans:bean>
+
 	<http auto-config="true">
-		<form-login login-page="/" default-target-url="/home"
-			authentication-failure-url="/" always-use-default-target="true" />
+		<remember-me />
+		<form-login login-processing-url="/j_spring_security_check"
+			login-page="/" default-target-url="/home" authentication-failure-url="/"
+			always-use-default-target="true" />
 		<logout invalidate-session="true" logout-success-url="/"
 			logout-url="/j_spring_security_logout" />
-		<intercept-url pattern="/home/**" access="ROLE_USER" />
+		<intercept-url pattern="/home/**" access="ROLE_USER,ROLE_ADMIN" />
 		<intercept-url pattern="/pages/admin/**" access="ROLE_ADMIN" />
 		<intercept-url pattern="/pages/user/**" access="ROLE_USER,ROLE_ADMIN" />
 	</http>
