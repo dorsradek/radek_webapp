@@ -8,9 +8,9 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <body>
-	<h:form id="loginForm" prependId="false"
+	<h:form styleClass="loginForm" prependId="false"
 		rendered="#{empty request.remoteUser}">
-		<p:panelGrid>
+		<p:panelGrid styleClass="loginPanelGrid" >
 			<p:row>
 				<p:column>
 					<h:outputLabel for="j_username" value="Username:" />
@@ -34,8 +34,19 @@
 					<p:commandButton type="submit" id="login" ajax="false"
 						action="#{loginBean.doLogin}" value="Login" />
 				</p:column>
+				<p:column>
+					<h:form id="logoutForm" prependId="false"
+						rendered="#{not empty request.remoteUser}">
+						<p:commandButton type="submit" id="logout" ajax="false"
+							actionListener="#{loginBean.doLogout}" value="Logout" />
+					</h:form>
+					<h:form id="registerForm" prependId="false"
+						rendered="#{empty request.remoteUser}">
+						<p:commandButton type="submit" id="register" ajax="false"
+							actionListener="#{loginBean.doRegister}" value="Register" />
+					</h:form>
+				</p:column>
 			</p:row>
-
 			<p:row>
 				<p:column>
 					<p:selectBooleanCheckbox id="_spring_security_remember_me"
@@ -47,17 +58,6 @@
 				<p:column></p:column>
 			</p:row>
 		</p:panelGrid>
-	</h:form>
-	<h:form id="logoutForm" prependId="false"
-		rendered="#{not empty request.remoteUser}">
-		<p:commandButton type="submit" id="logout" ajax="false"
-			actionListener="#{loginBean.doLogout}" value="Logout" />
-	</h:form>
-
-	<h:form id="registerForm" prependId="false"
-		rendered="#{empty request.remoteUser}">
-		<p:commandButton type="submit" id="register" ajax="false"
-			actionListener="#{loginBean.doRegister}" value="Register" />
 	</h:form>
 </body>
 </html>

@@ -21,28 +21,57 @@
 		<h:outputStylesheet name="css/style.css" />
 	</h:head>
 	<h:body>
-		<p:messages id="messages" showDetail="false" autoUpdate="true"
-			closable="false" />
-		<p:layout fullPage="true" resizeTitle="resize" id="main">
+		<p:panel styleClass="north">
+			<ui:include src="header.xhtml" />
+		</p:panel>
 
-			<p:layoutUnit id="north" position="north" size="150"
-				resizable="false">
-				<ui:include src="header.xhtml" />
-			</p:layoutUnit>
+		<p:outputPanel styleClass="mainContent">
 
-			<p:layoutUnit id="west" position="west" resizable="false"
-				header="#{msg['menu.title']}" size="225">
+			<p:carousel style="width: 100% !important;height:300px;" pageLinks="4"
+				autoPlayInterval="4000" numVisible="1" effect="easeInStrong"
+				circular="true">
+				<h:form>
+					<h:commandLink action="#">
+						<p:graphicImage value="resources/images/Chrysanthemum.jpg"
+							style="width: 100% !important;height:auto;" />
+					</h:commandLink>
+				</h:form>
+				<h:form>
+					<h:commandLink action="#">
+						<p:graphicImage value="resources/images/Desert.jpg"
+							style="width: 100% !important;height:300px;" />
+					</h:commandLink>
+				</h:form>
+				<h:form>
+					<h:commandLink action="#">
+						<p:graphicImage value="resources/images/Hydrangeas.jpg"
+							style="width: 100% !important;height:300px;" />
+					</h:commandLink>
+				</h:form>
+				<h:form>
+					<h:commandLink action="#">
+						<p:graphicImage value="resources/images/Jellyfish.jpg"
+							style="width: 100% !important;height:300px;" />
+					</h:commandLink>
+				</h:form>
+			</p:carousel>
+
+			<p:fieldset legend="West" styleClass="west">
 				<ui:include src="menu.xhtml" />
-			</p:layoutUnit>
+			</p:fieldset>
 
-			<p:layoutUnit id="content" position="center">
+			<p:fieldset legend="East" styleClass="east">
+			</p:fieldset>
+
+			<p:fieldset legend="Content" styleClass="content">
 				<ui:insert name="content" />
-			</p:layoutUnit>
+			</p:fieldset>
 
-			<p:layoutUnit position="south" resizable="true" id="south">
-				<ui:include src="footer.xhtml" />
-			</p:layoutUnit>
-		</p:layout>
+		</p:outputPanel>
+
+		<p:panel styleClass="south">
+			<ui:include src="footer.xhtml" />
+		</p:panel>
 	</h:body>
 </f:view>
 </html>

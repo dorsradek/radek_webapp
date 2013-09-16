@@ -1,18 +1,87 @@
 @CHARSET "UTF-8";
 
 .ui-widget,.ui-widget .ui-widget {
-	font-size: 85% !important;
+	font-size: 90% !important;
 }
 
-#home {
-	background-color: #FFFFFF;
+.north {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 90px;
 }
 
-#west {
-	height: 580px;
-	overflow: hidden
+.content {
+	margin: 0 auto;
+	width: 300px;
+	height: 100%;
+	overflow: hidden;
+	background-color: #f7f7f7;
 }
 
-.languageHeaderGrid tr,.languageHeaderGrid td {
-	border: none;
+.east {
+	width: 200px;
+	height: auto;
+	float: right;
+	overflow: hidden;
+	margin: 0;
+	background-color: #f7f7f7;
+}
+
+.west {
+	width: 200px;
+	height: auto;
+	float: left;
+	overflow: hidden;
+	margin: 0;
+	background-color: #f7f7f7;
+}
+
+.south {
+	width: 100%;
+	height: 30px;
+}
+
+.languageForm {
+	float: right;
+	overflow: hidden;
+	margin: 0;
+}
+
+.languagePanelGrid tr {
+	border: none !important;
+}
+
+.languagePanelGrid td {
+	border: none !important;
+	padding: 0px 10px !important;
+}
+
+.loginForm {
+	float: right;
+	margin: 0;
+}
+
+.loginPanelGrid tr {
+	border: none !important;
+}
+
+.loginPanelGrid td {
+	border: none !important;
+	padding: 0px 10px !important;
+}
+
+.headerContent {
+	width: 980px !important;
+	height: 76px !important;
+	display: block !important;
+	margin: 0 auto !important;
+}
+
+.mainContent {
+	width: 980px !important;
+	height: auto !important;
+	display: block !important;
+	margin: 0 auto !important;
+	margin-top: 120px !important;
 }

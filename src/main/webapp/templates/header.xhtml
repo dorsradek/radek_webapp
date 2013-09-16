@@ -8,15 +8,9 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <body>
-	<p:panelGrid>
-		<p:row>
-			<p:column>
-				<ui:include src="language.xhtml" />
-			</p:column>
-			<p:column>
-				<ui:include src="login.xhtml" />
-			</p:column>
-		</p:row>
-	</p:panelGrid>
+	<p:outputPanel styleClass="headerContent">
+		<ui:include src="language.xhtml" />
+		<ui:include src="login.xhtml" />
+	</p:outputPanel>
 </body>
 </html>
