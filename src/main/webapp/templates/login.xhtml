@@ -10,7 +10,7 @@
 <body>
 	<h:form styleClass="loginForm" prependId="false"
 		rendered="#{empty request.remoteUser}">
-		<p:panelGrid styleClass="loginPanelGrid" >
+		<p:panelGrid styleClass="loginPanelGrid">
 			<p:row>
 				<p:column>
 					<h:outputLabel for="j_username" value="Username:" />
@@ -48,13 +48,15 @@
 				</p:column>
 			</p:row>
 			<p:row>
-				<p:column>
+				<!-- <p:column>
 					<p:selectBooleanCheckbox id="_spring_security_remember_me"
 						value="#{loginBean.rememberMe}" />
 					<h:outputText for="_spring_security_remember_me"
 						value="Remember me" />
+				</p:column> -->
+				<p:column>
+					<h:outputText value="Nie pamiętasz hasła?" />
 				</p:column>
-				<p:column>Nie pamiętasz hasła?</p:column>
 				<p:column></p:column>
 			</p:row>
 		</p:panelGrid>

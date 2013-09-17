@@ -8,7 +8,7 @@
 	position: absolute;
 	top: 0px;
 	width: 100%;
-	height: 90px;
+	height: 80px;
 }
 
 .content {
@@ -17,6 +17,7 @@
 	height: 100%;
 	overflow: hidden;
 	background-color: #f7f7f7;
+	margin-top: 200px;
 }
 
 .east {
@@ -84,4 +85,35 @@
 	display: block !important;
 	margin: 0 auto !important;
 	margin-top: 120px !important;
+}
+
+.ui-carousel-viewport {
+	overflow: hidden;
+	position: relative;
+	border: 0;
+	height: 300px !important;
+	width: 100% !important;
+}
+
+.ui-carousel {
+	width: 100% !important;
+	background: transparent;
+	border: none;
+	padding: 0 !important;
+}
+
+.ui-carousel-header {
+	background: transparent;
+	border: none;
+	position: absolute;
+	padding-top: 7px !important;
+	padding-bottom: 8px !important;
+	padding-right: 10px !important;
+	padding-left: 830px !important;
+	z-index: 1;
+}
+
+#image {
+	width: 100% !important;
+	height: 100% !important;
 }
