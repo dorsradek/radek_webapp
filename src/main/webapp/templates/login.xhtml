@@ -8,8 +8,11 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <body>
+
+
 	<h:form styleClass="loginForm" prependId="false"
 		rendered="#{empty request.remoteUser}">
+		<p:growl id="growl" showDetail="true" sticky="false" life="1500" />
 		<p:panelGrid styleClass="loginPanelGrid">
 			<p:row>
 				<p:column>
@@ -23,11 +26,11 @@
 
 			<p:row>
 				<p:column>
-					<p:inputText id="j_username" required="true"
+					<p:inputText id="j_username" required="true" requiredMessage="user"
 						value="#{loginBean.username}" />
 				</p:column>
 				<p:column>
-					<p:password id="j_password" required="true"
+					<p:password id="j_password" required="true" requiredMessage="pass"
 						value="#{loginBean.password}" />
 				</p:column>
 				<p:column>

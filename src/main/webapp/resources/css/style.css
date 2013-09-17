@@ -5,7 +5,7 @@
 }
 
 .north {
-	position: absolute;
+	position: relative;
 	top: 0px;
 	width: 100%;
 	height: 80px;
@@ -77,6 +77,7 @@
 	height: 76px !important;
 	display: block !important;
 	margin: 0 auto !important;
+	position: absolute !important;
 }
 
 .mainContent {
@@ -84,7 +85,7 @@
 	height: auto !important;
 	display: block !important;
 	margin: 0 auto !important;
-	margin-top: 120px !important;
+	margin-top: 87px !important;
 }
 
 .ui-carousel-viewport {
