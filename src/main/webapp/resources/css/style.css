@@ -5,10 +5,15 @@
 }
 
 .north {
-	position: relative;
+	position: absolute;
 	top: 0px;
+	left: 0px;
+	right: 0px;
 	width: 100%;
-	height: 80px;
+	height: 70px;
+	background-color: #231f20 !important;
+	border-bottom: 4px solid #f1b429 !important;
+	-webkit-border-radius: 0px !important;
 }
 
 .content {
@@ -74,10 +79,8 @@
 
 .headerContent {
 	width: 980px !important;
-	height: 76px !important;
 	display: block !important;
 	margin: 0 auto !important;
-	position: absolute !important;
 }
 
 .mainContent {
@@ -117,4 +120,20 @@
 #image {
 	width: 100% !important;
 	height: 100% !important;
+}
+
+.ui-widget-content {
+	border: none;
+	background: #231f20;
+	color: #f7f7f7;
+}
+
+.ui-state-highlight,.ui-widget-content .ui-state-highlight,.ui-widget-header .ui-state-highlight
+	{
+	background: f1b429 !important;
+}
+
+.ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus
+	{
+	//background: #f8d589 !important;
 }
