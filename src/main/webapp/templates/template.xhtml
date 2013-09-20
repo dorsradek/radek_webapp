@@ -19,8 +19,122 @@
 
 	<h:head>
 		<h:outputStylesheet name="css/style.css" />
+		<script type="text/javascript">
+			function handleDialogSubmit(xhr, status, args) {
+				if (args.validationFailed) {
+					muestra();
+					dlg.show();
+				} else {
+					dlg.hide();
+				}
+			}
+		</script>
+		<script>
+			function muestra() {
+				growl.show([ {
+					summary : 'infooo text',
+					detail : 'detaaaaaaail text',
+					severity : 'info'
+				}, {
+					summary : 'warn text',
+					detail : 'detail text',
+					severity : 'warn'
+				} ]);
+
+			}
+		</script>
 	</h:head>
 	<h:body>
+
+		<p:dialog styleClass="dialog" header="Login" widgetVar="dlg"
+			resizable="false" draggable="false" modal="true">
+			<h:form styleClass="loginForm" prependId="false">
+				<p:growl widgetVar="growl" showDetail="true" sticky="false"
+					life="1500" />
+
+
+				<p:panelGrid styleClass="loginPanelGrid">
+					<p:row>
+						<p:column>
+							<h:outputLabel for="j_username" value="#{msg['login.username']}" />
+						</p:column>
+						<p:column>
+							<h:outputLabel for="j_password" value="#{msg['login.password']}" />
+						</p:column>
+						<p:column></p:column>
+					</p:row>
+
+					<p:row>
+						<p:column>
+							<p:inputText id="j_username" required="true"
+								requiredMessage="user" value="#{loginBean.username}" />
+						</p:column>
+						<p:column>
+							<p:password id="j_password" required="true"
+								requiredMessage="pass" value="#{loginBean.password}" />
+						</p:column>
+						<p:column>
+							<p:commandButton type="submit" id="login"
+								actionListener="#{loginBean.doLogin}"
+								value="#{msg['login.login']}"
+								oncomplete="handleDialogSubmit(xhr, status, args)" />
+						</p:column>
+						<p:column>
+							<h:form id="logoutForm" prependId="false"
+								rendered="#{not empty request.remoteUser}">
+								<p:commandButton type="submit" id="logout" ajax="false"
+									actionListener="#{loginBean.doLogout}"
+									value="#{msg['login.logout']}" />
+							</h:form>
+							<h:form id="registerForm" prependId="false"
+								rendered="#{empty request.remoteUser}">
+								<p:commandButton type="submit" id="register" ajax="false"
+									actionListener="#{loginBean.doRegister}"
+									value="#{msg['login.register']}" />
+							</h:form>
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column>
+							<h:outputText value="#{msg['login.askpassword']}" />
+						</p:column>
+						<p:column></p:column>
+						<p:column></p:column>
+					</p:row>
+				</p:panelGrid>
+
+			</h:form>
+		</p:dialog>
+		<p:dialog styleClass="dialog" header="Register" widgetVar="dlg2"
+			resizable="false" draggable="false" modal="true">
+			<h:form styleClass="loginForm" prependId="false">
+				<p:growl widgetVar="growl2" showDetail="true" sticky="false"
+					life="1500" />
+
+
+				<p:panelGrid styleClass="loginPanelGrid">
+					<p:row>
+						<p:column>
+							<h:outputLabel value="#{msg['login.username']}" />
+						</p:column>
+						<p:column>
+							<h:outputLabel value="#{msg['login.password']}" />
+						</p:column>
+						<p:column></p:column>
+					</p:row>
+					<p:row>
+						<p:column>
+							<h:outputText value="#{msg['login.askpassword']}" />
+						</p:column>
+						<p:column></p:column>
+						<p:column></p:column>
+					</p:row>
+				</p:panelGrid>
+
+			</h:form>
+		</p:dialog>
+
+
 		<p:panel styleClass="north">
 			<ui:include src="header.xhtml" />
 		</p:panel>

@@ -9,60 +9,21 @@
 
 <body>
 
-
-	<h:form styleClass="loginForm" prependId="false"
-		rendered="#{empty request.remoteUser}">
-		<p:growl id="growl" showDetail="true" sticky="false" life="1500" />
-		<p:panelGrid styleClass="loginPanelGrid">
-			<p:row>
-				<p:column>
-					<h:outputLabel for="j_username" value="#{msg['login.username']}" />
-				</p:column>
-				<p:column>
-					<h:outputLabel for="j_password" value="#{msg['login.password']}" />
-				</p:column>
-				<p:column></p:column>
-			</p:row>
-
-			<p:row>
-				<p:column>
-					<p:inputText id="j_username" required="true" requiredMessage="user"
-						value="#{loginBean.username}" />
-				</p:column>
-				<p:column>
-					<p:password id="j_password" required="true" requiredMessage="pass"
-						value="#{loginBean.password}" />
-				</p:column>
-				<p:column>
-					<p:commandButton type="submit" id="login" ajax="false"
-						action="#{loginBean.doLogin}" value="#{msg['login.login']}" />
-				</p:column>
-				<p:column>
-					<h:form id="logoutForm" prependId="false"
-						rendered="#{not empty request.remoteUser}">
-						<p:commandButton type="submit" id="logout" ajax="false"
-							actionListener="#{loginBean.doLogout}" value="#{msg['login.logout']}" />
-					</h:form>
-					<h:form id="registerForm" prependId="false"
-						rendered="#{empty request.remoteUser}">
-						<p:commandButton type="submit" id="register" ajax="false"
-							actionListener="#{loginBean.doRegister}" value="#{msg['login.register']}" />
-					</h:form>
-				</p:column>
-			</p:row>
-			<p:row>
-				<!-- <p:column>
-					<p:selectBooleanCheckbox id="_spring_security_remember_me"
-						value="#{loginBean.rememberMe}" />
-					<h:outputText for="_spring_security_remember_me"
-						value="Remember me" />
-				</p:column> -->
-				<p:column>
-					<h:outputText value="#{msg['login.askpassword']}" />
-				</p:column>
-				<p:column></p:column>
-			</p:row>
-		</p:panelGrid>
-	</h:form>
+	<p:panelGrid styleClass="loginPanelGrid">
+		<p:row>
+			<p:column>
+				<h:form id="initForm">
+					<p:commandButton id="showDialogButton" type="button" value="Login"
+						onclick="dlg.show()" />
+				</h:form>
+			</p:column>
+			<p:column>
+				<h:form id="initForm2">
+					<p:commandButton id="showDialogButton" type="button"
+						value="Register" onclick="dlg2.show()" />
+				</h:form>
+			</p:column>
+		</p:row>
+	</p:panelGrid>
 </body>
 </html>
